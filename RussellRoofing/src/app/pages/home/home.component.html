@@ -1,0 +1,218 @@
+<!-- Hero Section -->
+<section class="hero">
+  <div class="overlay"></div>
+  <div class="container hero-content">
+    <div class="row">
+      <div class="col-lg-8 col-xl-7 text-white">
+        <h1 class="display-4 fw-bold mb-4">Quality Roofing Solutions serving all Central Florida</h1>
+        <p class="lead mb-4">Family owned and operated professional residential and commercial roofing services with over {{ currentYear - 2006 }}+ years of experience. Licensed, bonded, and insured.</p>
+        <div class="d-flex flex-column flex-sm-row gap-3 mt-4">
+          <a routerLink="/contact" class="btn btn-primary btn-lg px-4">Free Estimate</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section class="why-us py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title">Why Choose Russell Roofing Inc.?</h2>
+      <p class="section-subtitle">Where Quality Makes The Difference - Serving Ormond Beach since 2006</p>
+    </div>
+    
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3">
+        <div class="feature-card">
+          <div class="icon-container mb-4">
+            <i class="fas fa-medal"></i>
+          </div>
+          <h3>Quality Materials</h3>
+          <p>We use only premium, durable materials backed by manufacturer warranties.</p>
+        </div>
+      </div>
+      
+      <div class="col-md-6 col-lg-3">
+        <div class="feature-card">
+          <div class="icon-container mb-4">
+            <i class="fas fa-tools"></i>
+          </div>
+          <h3>Expert Installation</h3>
+          <p>Our skilled team has decades of combined experience in roof installation.</p>
+        </div>
+      </div>
+      
+      <div class="col-md-6 col-lg-3">
+        <div class="feature-card">
+          <div class="icon-container mb-4">
+            <i class="fas fa-certificate"></i>
+          </div>
+          <h3>Licensed & Insured</h3>
+          <p>Fully licensed, bonded, and insured for your complete peace of mind.</p>
+        </div>
+      </div>
+      
+      <div class="col-md-6 col-lg-3">
+        <div class="feature-card">
+          <div class="icon-container mb-4">
+            <i class="fas fa-dollar-sign"></i>
+          </div>
+          <h3>Competitive Pricing</h3>
+          <p>Fair and transparent pricing.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section class="services py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title">Our Roofing Services</h2>
+      <p class="section-subtitle">Comprehensive solutions for all your roofing needs</p>
+    </div>
+    
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="service-card">
+          <div class="service-card-img residential">
+            <div class="overlay"></div>
+            <div class="content">
+              <h3>Residential Roofing</h3>
+              <p>Complete residential roofing services including repairs, replacements, and maintenance.</p>
+              <a routerLink="/residential" class="btn btn-outline-light mt-3">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-6">
+        <div class="service-card">
+          <div class="service-card-img commercial">
+            <div class="overlay"></div>
+            <div class="content">
+              <h3>Commercial Roofing</h3>
+              <p>Specialized solutions for businesses including flat roofs, TPO, EPDM, and more.</p>
+              <a routerLink="/commercial" class="btn btn-outline-light mt-3">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row g-4 mt-2">
+      <div class="col-md-4">
+        <div class="service-item">
+          <i class="fas fa-hammer"></i>
+          <h4>Roof Repairs</h4>
+          <p>Fast, effective repairs for leaks, storm damage, and general wear and tear.</p>
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+        <div class="service-item">
+          <i class="fas fa-home"></i>
+          <h4>Roof Replacement</h4>
+          <p>Complete tear-offs and replacements with quality materials and expert installation.</p>
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+        <div class="service-item">
+          <i class="fas fa-shield-alt"></i>
+          <h4>Preventative Maintenance</h4>
+          <p>Regular inspections and maintenance to extend your roof's lifespan.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta py-5">
+  <div class="container">
+    <div class="cta-content p-5">
+      <div class="row align-items-center">
+        <div class="col-lg-8 mb-4 mb-lg-0">
+          <h2 class="text-white">Need a Free Roof Inspection?</h2>
+          <p class="text-white mb-0">Contact us today to schedule a complimentary, no-obligation roof inspection and estimate.</p>
+        </div>
+        <div class="col-lg-4 text-lg-end">
+          <a routerLink="/contact" class="btn btn-light btn-lg">Contact Us Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title">Customer Testimonials</h2>
+      <p class="section-subtitle">See what our satisfied customers have to say</p>
+    </div>
+    
+    <div class="row g-4">
+      <div *ngFor="let testimonial of testimonials" class="col-md-4">
+        <div class="testimonial-card p-4">
+          <div class="testimonial-stars mb-3">
+            <i *ngFor="let star of [1,2,3,4,5]" class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-quote mb-4">"{{ testimonial.quote }}"</p>
+          <div class="testimonial-author">
+            <h5 class="mb-1">{{ testimonial.name }}</h5>
+            <p class="mb-0 text-muted">{{ testimonial.location }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section class="about py-5 bg-light">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <div class="about-image position-relative">
+          <div class="image-bg"></div>
+          <div class="experience-badge">
+            <span class="number">{{ currentYear - 2006 }}+</span>
+            <span class="text">Years Experience</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-6">
+        <h2 class="section-title">About Russell Roofing Inc.</h2>
+        <p class="lead mb-4"><strong>Where Quality Makes The Difference</strong></p>
+        <p class="mb-4">Russell Roofing Inc is a family owned and operated company. We have been providing quality service to Florida customers since 2006.</p>
+        <p class="mb-4">We are a state certified licensed roofing contractor that will go out of our way to continually provide our customers with the superior quality work and unmatched customer service.</p>
+        <p class="mb-4">We specialize in all forms of metal and Alum roofs: commercial and residential. We also handle asphalt shingle, modified bitumen(Heat applied roll roofing) and TPO roofing.</p>
+        <div class="row g-4 mt-2">
+          <div class="col-md-6">
+            <div class="about-feature">
+              <i class="fas fa-check-circle"></i>
+              <span>Licensed & Insured</span>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="about-feature">
+              <i class="fas fa-check-circle"></i>
+              <span>Free Estimates</span>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="about-feature">
+              <i class="fas fa-check-circle"></i>
+              <span>Warranty Options</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

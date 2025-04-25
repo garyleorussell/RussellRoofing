@@ -1,0 +1,66 @@
+header {
+  transition: all 0.3s ease;
+  
+  &.scrolled {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    
+    .navbar {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+  }
+  
+  .navbar {
+    background-color: #a82727;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: white;
+  }
+
+  .nav-link {
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    color: rgba(255, 255, 255, 0.85);
+    transition: color 0.3s ease;
+    
+    &:hover, &.active {
+      color: white;
+    }
+  }
+
+  .btn-primary {
+    background-color: #1728c2;
+    border-color: #1728c2;
+    font-weight: 600;
+    
+    &:hover {
+      background-color: darken(#121e88, 10%);
+      border-color: darken(#121e88, 10%);
+    }
+  }
+}
+
+@media (max-width: 991.98px) {
+  header {
+    .navbar-collapse {
+      background-color: #1a3c61;
+      padding: 1rem;
+      border-radius: 0.25rem;
+      margin-top: 0.5rem;
+    }
+    
+    .nav-item {
+      margin-bottom: 0.5rem;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

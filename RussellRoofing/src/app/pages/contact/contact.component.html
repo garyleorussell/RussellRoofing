@@ -1,0 +1,258 @@
+<!-- Hero Section -->
+<section class="page-hero contact-hero">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <h1>Contact Us</h1>
+        <p class="lead">Reach out to discuss your roofing needs with our expert team</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Info Section -->
+<section class="section py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto text-center mb-5">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">We're here to answer your questions and provide expert roofing solutions</p>
+      </div>
+    </div>
+    
+    <div class="row g-4 mb-5">
+      <div class="col-md-4">
+        <div class="contact-card h-100">
+          <div class="contact-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <h3>Our Location</h3>
+          <p>344 Oak Ridge Rd<br>Ormond Beach, FL 32174</p>
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+        <div class="contact-card h-100">
+          <div class="contact-icon">
+            <i class="fas fa-phone-alt"></i>
+          </div>
+          <h3>Phone Numbers</h3>
+          <p>East Coast Office: (386) 871-7239<br>
+          <a href="tel:+13868717239" class="contact-link">Call Now</a></p>
+          <p>West Coast Office: (352) 697-3113<br>      
+          <a href="tel:+13526973113" class="contact-link">Call Now</a></p>
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+        <div class="contact-card h-100">
+          <div class="contact-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <h3>Email Us</h3>
+          <p>info&#64;russellroofinginc.com</p>
+          <a href="mailto:info&#64;russellroofinginc.com" class="contact-link">Send Email</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row g-4 justify-content-center">
+      <!-- <div class="col-lg-6 mb-4 mb-lg-0">
+        <div class="map-container">
+          <h3 class="mb-4">Find Us</h3>
+          <div class="map-placeholder">
+            <div class="map-content">
+              <i class="fas fa-map-marked-alt"></i>
+              <p>Interactive Map</p>
+              <small>123 Seaside Ave, Ormond Beach, FL 32174</small>
+            </div>
+          </div>
+         
+        </div>
+      </div> -->
+      
+      <div class="col-lg-6">
+        <div class="form-container">
+          <h3 class="mb-4">Send Us a Message</h3>
+          
+          <div *ngIf="formSuccess" class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="fas fa-check-circle me-2"></i> Your message has been sent successfully. We'll get back to you soon!
+            <button type="button" class="btn-close" (click)="formSuccess = false" aria-label="Close"></button>
+          </div>
+          
+          <div *ngIf="formError" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="fas fa-exclamation-circle me-2"></i> {{ errorMessage }}
+            <button type="button" class="btn-close" (click)="formError = false" aria-label="Close"></button>
+          </div>
+          
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="name" class="form-label">Your Name*</label>
+              <input 
+                type="text" 
+                class="form-control" 
+                id="name" 
+                formControlName="name" 
+                [ngClass]="{'is-invalid': formSubmitted && fc['name'].errors}"
+              >
+              <div *ngIf="formSubmitted && fc['name'].errors" class="invalid-feedback">
+                <div *ngIf="fc['name'].errors['required']">Name is required</div>
+                <div *ngIf="fc['name'].errors['minlength']">Name must be at least 2 characters</div>
+              </div>
+            </div>
+            
+            <div class="mb-3">
+              <label for="email" class="form-label">Email Address*</label>
+              <input 
+                type="email" 
+                class="form-control" 
+                id="email" 
+                formControlName="email"
+                [ngClass]="{'is-invalid': formSubmitted && fc['email'].errors}"
+              >
+              <div *ngIf="formSubmitted && fc['email'].errors" class="invalid-feedback">
+                <div *ngIf="fc['email'].errors['required']">Email is required</div>
+                <div *ngIf="fc['email'].errors['email']">Please enter a valid email address</div>
+              </div>
+            </div>
+            
+            <div class="mb-3">
+              <label for="phone" class="form-label">Phone Number*</label>
+              <input 
+                type="tel" 
+                class="form-control" 
+                id="phone" 
+                formControlName="phone"
+                [ngClass]="{'is-invalid': formSubmitted && fc['phone'].errors}"
+                placeholder="(123) 456-7890"
+              >
+              <div *ngIf="formSubmitted && fc['phone'].errors" class="invalid-feedback">
+                <div *ngIf="fc['phone'].errors['required']">Phone number is required</div>
+                <div *ngIf="fc['phone'].errors['pattern']">Please enter a valid phone number</div>
+              </div>
+            </div>
+            
+            <div class="mb-3">
+              <label for="service" class="form-label">Service Needed*</label>
+              <select 
+                class="form-select" 
+                id="service" 
+                formControlName="service"
+                [ngClass]="{'is-invalid': formSubmitted && fc['service'].errors}"
+              >
+                <option value="" disabled selected>Select a service</option>
+                <option *ngFor="let option of serviceOptions" [value]="option">{{ option }}</option>
+              </select>
+              <div *ngIf="formSubmitted && fc['service'].errors" class="invalid-feedback">
+                <div *ngIf="fc['service'].errors['required']">Please select a service</div>
+              </div>
+            </div>
+            
+            <div class="mb-3">
+              <label for="message" class="form-label">Your Message*</label>
+              <textarea 
+                class="form-control" 
+                id="message" 
+                rows="5" 
+                formControlName="message"
+                [ngClass]="{'is-invalid': formSubmitted && fc['message'].errors}"
+              ></textarea>
+              <div *ngIf="formSubmitted && fc['message'].errors" class="invalid-feedback">
+                <div *ngIf="fc['message'].errors['required']">Message is required</div>
+                <div *ngIf="fc['message'].errors['minlength']">Message must be at least 10 characters</div>
+              </div>
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-lg w-100">
+              <i class="fas fa-paper-plane me-2"></i>Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="section py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto text-center mb-5">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">Quick answers to common questions</p>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        <div class="accordion" id="contactFaqAccordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                How quickly can you respond to my inquiry?
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#contactFaqAccordion">
+              <div class="accordion-body">
+                <p>We typically respond to all inquiries within 24 business hours. For emergency services, we have teams available 24/7 and aim to respond immediately to urgent situations.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Do you provide free estimates?
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#contactFaqAccordion">
+              <div class="accordion-body">
+                <p>Yes, we provide free, no-obligation estimates for all roofing services. Our expert will visit your property, assess your roofing needs, and provide a detailed written estimate.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                What areas do you service?
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#contactFaqAccordion">
+              <div class="accordion-body">
+                <p>We primarily serve Ormond Beach and surrounding areas including Daytona Beach, Port Orange, Palm Coast, New Smyrna Beach, and throughout Volusia and Flagler counties.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFour">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                How do I schedule a roof inspection?
+              </button>
+            </h2>
+            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#contactFaqAccordion">
+              <div class="accordion-body">
+                <p>You can schedule a roof inspection by filling out our contact form, calling our office at (386) 555-1234, or sending an email to info&#64;russellroofinginc.com. Let us know your availability, and we'll coordinate a convenient time for our inspector to visit your property.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section py-5">
+  <div class="container">
+    <div class="cta-content p-5 text-center">
+      <h2 class="text-white mb-4">Need Emergency Roofing Service?</h2>
+      <p class="text-white mb-4">Our emergency response team is available 24/7 for urgent roofing situations.</p>
+      <a href="tel:+13865559876" class="btn btn-light btn-lg">
+        <i class="fas fa-phone-alt me-2"></i>Call Emergency Line: (386) 555-9876
+      </a>
+    </div>
+  </div>
+</section>

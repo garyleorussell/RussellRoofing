@@ -1,0 +1,52 @@
+.footer {
+  background-color: #295279;
+  color: white;
+  padding-bottom: 2rem;
+  
+  h5 {
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+  
+  .footer-link {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    
+    &:hover {
+      color: white;
+      text-decoration: underline;
+    }
+  }
+  
+  .social-icons {
+    a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        background-color: #e85f1b;
+        transform: translateY(-3px);
+      }
+    }
+  }
+  
+  address {
+    font-style: normal;
+    
+    p {
+      margin-bottom: 0.5rem;
+    }
+    
+    i {
+      color: #e85f1b;
+    }
+  }
+}

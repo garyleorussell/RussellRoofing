@@ -1,0 +1,290 @@
+<!-- Hero Section -->
+<section class="page-hero commercial-hero">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <h1>Commercial Roofing Services</h1>
+        <p class="lead">Professional roofing solutions for businesses throughout Volusia, Flagler, Citrus, Hernando County and surrounding areas</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Intro Section -->
+<section class="section py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 mx-auto text-center">
+        <h2 class="section-title">Expert Commercial Roofing</h2>
+        <p class="section-subtitle mb-4">Protecting your business investment with quality commercial roofing solutions</p>
+        <p class="mb-4">
+          At Ocean View Roofing, we understand that a reliable roof is critical to your business operations. Our commercial roofing division specializes in providing durable, energy-efficient roofing systems designed to protect your building, minimize maintenance costs, and enhance your property's value.
+        </p>
+        <p>
+          We work with businesses of all sizes across various industries, from retail centers and office buildings to warehouses and industrial facilities. Our team brings extensive experience in commercial roof installation, repair, and maintenance to every project.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section class="section py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto text-center mb-5">
+        <h2 class="section-title">Commercial Roofing Services</h2>
+        <p class="section-subtitle">Comprehensive solutions for all your commercial roofing needs</p>
+      </div>
+    </div>
+    
+    <div class="row g-4">
+      <div *ngFor="let service of commercialServices" class="col-md-6 col-lg-4">
+        <div class="service-card h-100">
+          <div class="service-icon">
+            <i [class]="service.icon"></i>
+          </div>
+          <h3>{{ service.title }}</h3>
+          <p>{{ service.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Roofing Systems Section -->
+<section class="section py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto text-center mb-5">
+        <h2 class="section-title">Commercial Roofing Systems</h2>
+        <p class="section-subtitle">We install and maintain a wide range of high-performance commercial roofing systems</p>
+      </div>
+    </div>
+    
+    <div class="row g-4">
+      <div *ngFor="let system of roofingSystems" class="col-lg-6 mb-4">
+        <div class="system-card">
+          <div class="row g-0">
+            <div class="col-md-5">
+              <div class="system-image" [style.background-image]="'url(' + system.image + ')'"></div>
+            </div>
+            <div class="col-md-7">
+              <div class="system-content p-4">
+                <h3>{{ system.name }}</h3>
+                <p>{{ system.description }}</p>
+                <h4>Key Benefits:</h4>
+                <ul class="benefits-list">
+                  <li *ngFor="let benefit of system.benefits">{{ benefit }}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section class="section py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto text-center mb-5">
+        <h2 class="section-title">Why Choose Us for Commercial Roofing</h2>
+        <p class="section-subtitle">We bring expertise, quality, and reliability to every commercial project</p>
+      </div>
+    </div>
+    
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3">
+        <div class="feature-card h-100">
+          <div class="feature-icon">
+            <i class="fas fa-certificate"></i>
+          </div>
+          <h3>Industry Experience</h3>
+          <p>Over 20 years of commercial roofing experience serving businesses throughout Florida.</p>
+        </div>
+      </div>
+      
+      <div class="col-md-6 col-lg-3">
+        <div class="feature-card h-100">
+          <div class="feature-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>Licensed & Insured</h3>
+          <p>Fully licensed, bonded, and insured with comprehensive coverage for your protection.</p>
+        </div>
+      </div>
+      
+      <div class="col-md-6 col-lg-3">
+        <div class="feature-card h-100">
+          <div class="feature-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>Expert Team</h3>
+          <p>Skilled professionals trained in the latest commercial roofing techniques and systems.</p>
+        </div>
+      </div>
+      
+      <div class="col-md-6 col-lg-3">
+        <div class="feature-card h-100">
+          <div class="feature-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <h3>Minimal Disruption</h3>
+          <p>We work efficiently to minimize disruption to your business operations.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects Section -->
+<!-- <section class="section py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto text-center mb-5">
+        <h2 class="section-title">Featured Commercial Projects</h2>
+        <p class="section-subtitle">Examples of our commercial roofing work throughout the area</p>
+      </div>
+    </div>
+    
+    <div class="row g-4">
+      <div *ngFor="let project of commercialProjects" class="col-md-4">
+        <div class="project-card h-100">
+          <div class="project-image" [style.background-image]="'url(' + project.image + ')'"></div>
+          <div class="project-details p-4">
+            <h3>{{ project.title }}</h3>
+            <p class="location"><i class="fas fa-map-marker-alt"></i> {{ project.location }}</p>
+            <p class="description">{{ project.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<!-- Clients Section -->
+<!-- <section class="section py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto text-center mb-5">
+        <h2 class="section-title">Trusted by Businesses</h2>
+        <p class="section-subtitle">We're proud to work with leading businesses throughout the region</p>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-12">
+        <div class="clients-wrapper">
+          <div class="row g-4 justify-content-center">
+            <div *ngFor="let client of clientLogos" class="col-6 col-md-4 col-lg-2">
+              <div class="client-logo">
+                <i [class]="client.class"></i>
+                <span>{{ client.name }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<!-- FAQ Section -->
+<section class="section py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto text-center mb-5">
+        <h2 class="section-title">Commercial Roofing FAQs</h2>
+        <p class="section-subtitle">Common questions about commercial roofing</p>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        <div class="accordion" id="commercialFaqAccordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                How long does a commercial roof typically last?
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#commercialFaqAccordion">
+              <div class="accordion-body">
+                <p>The lifespan of a commercial roof depends on several factors including the type of roofing system, installation quality, climate, and maintenance. Generally, EPDM or TPO roofs can last 20-30 years, metal roofs 30-45+ years, and modified bitumen 15-20 years. Regular maintenance can significantly extend the life of any commercial roofing system.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                How can I tell if my commercial roof needs to be replaced?
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#commercialFaqAccordion">
+              <div class="accordion-body">
+                <p>Signs that your commercial roof may need replacement include: persistent leaks despite repairs, bubbling or blistering on the roof surface, significant membrane shrinkage, extensive ponding water, severe storm damage, or if the roof is past its expected lifespan. Our free inspection can provide a definitive assessment of your roof's condition.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Can a commercial roof be repaired instead of replaced?
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#commercialFaqAccordion">
+              <div class="accordion-body">
+                <p>In many cases, yes. If your roof is relatively new and damage is localized, repairs are often a cost-effective solution. For roofs nearing the end of their lifespan with widespread issues, replacement may be more economical in the long run. Roof coatings can also extend the life of certain roofing systems. We'll provide honest recommendations based on your roof's condition and your budget.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFour">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                Will my business need to shut down during roof replacement?
+              </button>
+            </h2>
+            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#commercialFaqAccordion">
+              <div class="accordion-body">
+                <p>In most cases, we can complete commercial roofing projects while your business remains operational. We take extensive precautions to minimize disruption, including scheduling noisy work during off-hours when possible and implementing safety measures to protect your employees and customers. We'll work with you to develop a project plan that accommodates your business needs.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFive">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                What kind of warranty do you offer for commercial roofing?
+              </button>
+            </h2>
+            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#commercialFaqAccordion">
+              <div class="accordion-body">
+                <p>We offer comprehensive commercial roofing warranties that include both manufacturer warranties on materials and our own workmanship warranty. Depending on the roofing system, manufacturer warranties typically range from 10-30 years. Our standard workmanship warranty covers installation for 5-10 years. Extended warranty options are also available for additional protection.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section py-5">
+  <div class="container">
+    <div class="cta-content p-5 text-center">
+      <h2 class="text-white mb-4">Ready to Discuss Your Commercial Roofing Project?</h2>
+      <p class="text-white mb-4">Contact us today for a free, comprehensive roof inspection and consultation.</p>
+      <div class="d-flex justify-content-center">
+        <a routerLink="/contact" class="btn btn-light btn-lg me-3">Request a Quote</a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,41 @@
+<header class="fixed-top" [ngClass]="{'scrolled': isScrolled}">
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center flex-column flex-lg-row" routerLink="/">
+        <div class="d-flex align-items-center">
+          <i class="fas fa-home me-2"></i>
+          <span>Russell Roofing Inc.</span>
+        </div>
+        <small class="navbar-slogan ms-lg-2 d-none d-sm-inline">Where Quality Makes The Difference</small>
+      </a>
+      
+      <button class="navbar-toggler" type="button" (click)="toggleMenu()" 
+              aria-controls="navbarNav" [attr.aria-expanded]="isMenuOpen" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" [ngClass]="{'show': isMenuOpen}" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/" routerLinkActive="active" 
+               [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/residential" routerLinkActive="active" (click)="closeMenu()">Residential</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/commercial" routerLinkActive="active" (click)="closeMenu()">Commercial</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">Contact</a>
+          </li>
+          <li class="nav-item d-none d-lg-block ms-3">
+            <a class="btn btn-primary" href="tel:+13865551234">
+              <i class="fas fa-phone-alt me-2"></i>Call Now
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
