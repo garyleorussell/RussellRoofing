@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
+import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
+import { environment } from 'src/environments/environment'
 
 interface ContactFormData {
   name: string;
@@ -16,7 +18,7 @@ interface ContactFormData {
 })
 export class ContactService {
 
-  private emailUrl = 'http://localhost:3000/send-email';
+  private emailUrl = '/api/send-email';
 
   constructor(private http: HttpClient) { }
 
@@ -30,10 +32,19 @@ export class ContactService {
     // return this.http.post('/api/contact', formData);
     
     console.log('Form data received:', formData);
-    this.http.post(this.emailUrl, formData,  {responseType: 'text'}).subscribe({
-      next: data => this.emailUrl = this.emailUrl,
-      error: error => console.error('there was an error:  ', error)
+
+    emailjs.init({
+      publicKey: environment.emailJsPublicKey
     });
+
+    emailjs.send(environment.emailJsServiceKey,environment.emailJsTemplateKey,{
+      name: formData.name,
+      phone: formData.phone,
+      email: formData.email,
+      service: formData.service,
+      message: formData.message,
+    });
+      
 
     // Simulate successful API response with delay
     return of({

@@ -3,7 +3,15 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const nodemailer = require('nodemailer');
 const app = express();
-const port = 3000;
+const port = 8080;
+const { HttpsProxyAgent } = require('https-proxy-agent');
+
+// Proxy server URL and port
+const proxyUrl = 'https://russellroofinginc.com/send-mail';
+const proxyPort = 8080;
+
+// Create a proxy agent
+const proxyAgent = new HttpsProxyAgent(`${proxyUrl}:8080`);
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -18,15 +26,19 @@ app.post('/send-email', (req, res) => {
   const transporter = nodemailer.createTransport({
     host: 'smtp.dreamhost.com',
     port: 587,
+    secure: false,
     auth: {
-      user: 'website@russellroofinginc.com', // Replace with your email address
-      pass: 'RussellRoofing123!' // Replace with your email password
-    }
+      user: 'website@russellroofinginc.com', 
+      pass: 'RussellRoofing123!' 
+    },
+    proxy: proxyUrl,
+    pool: true,
+    transportOptions: { agent: proxyAgent }
   });
 
   const mailOptions = {
     from: 'website@russellroofinginc.com',
-    to: 'website@russellroofinginc.com', // Replace with recipient email address
+    to: 'website@russellroofinginc.com', 
     subject: 'New Contact Form Submission',
     text: `
       Name: ${name}
@@ -49,5 +61,5 @@ app.post('/send-email', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server listening at http://localhost:${port}`);
+  console.log(`Server listening at ${port}`);
 });

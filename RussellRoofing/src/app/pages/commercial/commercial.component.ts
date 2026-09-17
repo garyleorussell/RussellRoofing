@@ -13,7 +13,7 @@ export class CommercialComponent {
   commercialServices = [
     {
       title: 'Flat Roof Systems',
-      description: 'Expert installation and repairs for EPDM, TPO, PVC, and modified bitumen roof systems.',
+      description: 'Expert installation and repairs for flat roof systems.',
       icon: 'fas fa-building'
     },
     {
