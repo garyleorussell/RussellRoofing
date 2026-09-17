@@ -53,6 +53,45 @@
     border-width: 2px;
     font-weight: 600;
   }
+
+  .hero-badges {
+    .hero-badge {
+      display: flex;
+      align-items: center;
+      font-weight: 500;
+      font-size: 0.95rem;
+
+      i {
+        color: #e85f1b;
+        font-size: 1.1rem;
+        margin-right: 0.5rem;
+      }
+    }
+  }
+}
+
+// Stats Bar
+.stats-bar {
+  background-color: #13293d;
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+
+    .stat-number {
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: #e85f1b;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      color: rgba(255, 255, 255, 0.85);
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+  }
 }
 
 // Section Styles

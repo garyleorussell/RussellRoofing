@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "russell-roofing-dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "RussellRoofing", "start"],
+      "port": 4200
+    }
+  ]
+}
