@@ -1,0 +1,35 @@
+name: Deploy to DreamHost
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        working-directory: RussellRoofing
+        run: npm ci
+
+      - name: Build
+        working-directory: RussellRoofing
+        run: npm run build
+
+      - name: Install SSH key
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.DREAMHOST_SSH_KEY }}
+
+      - name: Add known host
+        run: echo "vps64179.dreamhostps.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINSRnmr+/likWFFa4DFpdLrr+0vgF+PxY1G5hUcSf45Q" >> ~/.ssh/known_hosts
+
+      - name: Deploy via rsync
+        run: rsync -avz --delete RussellRoofing/dist/russell-roofing/browser/ garyleo@vps64179.dreamhostps.com:/home/garyleo/russellroofinginc.com/
